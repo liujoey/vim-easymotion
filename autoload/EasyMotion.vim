@@ -60,17 +60,13 @@
 
 	function! EasyMotion#NormalMotionMappings() "{{{
 		silent exec 'nnoremap <silent> f :call EasyMotion#Finline(0, 0)<CR>'
-		silent exec 'onoremap <silent> f :call EasyMotion#Finline(0, 0)<CR>'
 		silent exec 'vnoremap <silent> f :<C-U>call EasyMotion#Finline(1, 0)<CR>'
 		silent exec 'nnoremap <silent> F :call EasyMotion#Finline(0, 1)<CR>'
-		silent exec 'onoremap <silent> F :call EasyMotion#Finline(0, 1)<CR>'
 		silent exec 'vnoremap <silent> F :<C-U>call EasyMotion#Finline(1, 1)<CR>'
 
 		silent exec 'nnoremap <silent> t :call EasyMotion#Tinline(0, 0)<CR>'
-		silent exec 'onoremap <silent> t :call EasyMotion#Tinline(0, 0)<CR>'
 		silent exec 'vnoremap <silent> t :<C-U>call EasyMotion#Tinline(1, 0)<CR>'
 		silent exec 'nnoremap <silent> T :call EasyMotion#Tinline(0, 1)<CR>'
-		silent exec 'onoremap <silent> T :call EasyMotion#Tinline(0, 1)<CR>'
 		silent exec 'vnoremap <silent> T :<C-U>call EasyMotion#Tinline(1, 1)<CR>'
 	endfunction "}}}
 

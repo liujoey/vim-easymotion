@@ -17,6 +17,7 @@
 		\ , 'keys'                   : 'abcdeghiklmnopqrstuvwxyzfj'
 		\ , 'do_shade'               : 1
 		\ , 'do_mapping'             : 1
+		\ , 'do_normal_motion'       : 1
 		\ , 'special_select_line'    : 1
 		\ , 'special_select_phrase'  : 1
 		\ , 'grouping'               : 1
@@ -101,7 +102,9 @@
 	" Special mapping for other functions {{{
 		call EasyMotion#SelectLinesMappings('l')
 		call EasyMotion#SelectPhraseMappings('p')
-		call EasyMotion#NormalMotionMappings()
+		if g:EasyMotion_do_normal_motion
+			call EasyMotion#NormalMotionMappings()
+		en
 	" }}}
 " }}}
 

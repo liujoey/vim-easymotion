@@ -21,6 +21,7 @@ CONTENTS                                                 *easymotion-contents*
        4.1 EasyMotion_keys ................ |EasyMotion_keys|
        4.2 EasyMotion_do_shade ............ |EasyMotion_do_shade|
        4.3 EasyMotion_do_mapping .......... |EasyMotion_do_mapping|
+       4.3 EasyMotion_do_normal_motion .... |EasyMotion_do_normal_motion|
        4.4 EasyMotion_grouping ............ |EasyMotion_grouping|
        4.5 Custom highlighting ............ |easymotion-custom-hl|
        4.6 Custom mappings ................ |easymotion-custom-mappings|
@@ -148,6 +149,16 @@ Set this option to 0 if you want to disable the default mappings. See
 Note: If you disable this option, you'll have to map the motions yourself. See
 the plugin source code for mapping details. You usually shouldn't need to do
 this, see |easymotion-custom-mappings| for customizing the default mappings.
+
+Default: 1
+------------------------------------------------------------------------------
+4.3 EasyMotion_do_normal_motion                 *EasyMotion_do_normal_motion*
+
+Set this option to 0 if you want to disable the normal motion mappings. Such
+as TtFf in normal/visual modes
+
+Note: If you disable this option, you'll have to map the motions yourself. See
+the plugin source code for mapping details. 
 
 Default: 1
 

@@ -13,20 +13,24 @@
 " Default configuration {{{
 	" Default options {{{
 		call EasyMotion#InitOptions({
-		\   'leader_key'             : '<Leader><Leader>'
-		\ , 'keys'                   : 'abcdeghiklmnopqrstuvwxyzfj'
-		\ , 'do_shade'               : 1
-		\ , 'do_mapping'             : 1
-		\ , 'do_normal_motion'       : 1
-		\ , 'special_select_line'    : 1
-		\ , 'special_select_phrase'  : 1
-		\ , 'grouping'               : 1
+		\   'leader_key'            : '<Leader><Leader>'
+		\ , 'keys'                  : 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+		\ , 'do_shade'              : 1
+		\ , 'do_mapping'            : 1
+		\ , 'do_normal_motion'      : 0
+		\ , 'special_select_line'   : 0
+		\ , 'special_select_phrase' : 0
+		\ , 'grouping'              : 1
+		\ , 'startofline'           : 1
+		\ , 'smartcase'             : 0
+		\ , 'skipfoldedline'        : 1
+		\ , 'use_migemo'            : 0
 		\
 		\ , 'hl_group_target'         : 'EasyMotionTarget'
 		\ , 'hl2_first_group_target'  : 'EasyMotionTarget2First'
 		\ , 'hl2_second_group_target' : 'EasyMotionTarget2Second'
 		\ , 'hl_group_shade'          : 'EasyMotionShade'
-		\ , 'hl_line_group_shade'          : 'EasyMotionShadeLine'
+		\ , 'hl_line_group_shade'     : 'EasyMotionShadeLine'
 		\ })
 	" }}}
 	" Default highlighting {{{
@@ -46,7 +50,7 @@
 		\   'gui'     : ['NONE', '#b98300' , 'bold']
 		\ , 'cterm256': ['NONE', '3'       , 'bold']
 		\ , 'cterm'   : ['NONE', '3'       , 'bold']
-		\ }  
+		\ }
 
 		let s:shade_hl_defaults = {
 		\   'gui'     : ['NONE', '#777777' , 'NONE']
@@ -83,6 +87,7 @@
 		\   'f' : { 'name': 'F'  , 'dir': 0 }
 		\ , 'F' : { 'name': 'F'  , 'dir': 1 }
 		\ , 's' : { 'name': 'S'  , 'dir': 2 }
+		\ , 'S' : { 'name': 'WB' , 'dir': 2 }
 		\ , 't' : { 'name': 'T'  , 'dir': 0 }
 		\ , 'T' : { 'name': 'T'  , 'dir': 1 }
 		\ , 'w' : { 'name': 'WB' , 'dir': 0 }
@@ -100,8 +105,10 @@
 		\ })
 	" }}}
 	" Special mapping for other functions {{{
-		call EasyMotion#SelectLinesMappings('l')
-		call EasyMotion#SelectPhraseMappings('p')
+		call EasyMotion#InitSpecialMappings({
+		\   'l' : { 'name': 'SelectLines' , 'flag': 'select_line' }
+		\ , 'p' : { 'name': 'SelectPhrase' , 'flag': 'select_phrase' }
+		\ })
 		if g:EasyMotion_do_normal_motion
 			call EasyMotion#NormalMotionMappings()
 		en

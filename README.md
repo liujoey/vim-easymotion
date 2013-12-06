@@ -1,6 +1,6 @@
 # Modifications to supasorn's fork
 1. Delete lines (triggered by normal command `dl`) now preserve current position for easier paste.
-2. Added inline parameter in easymotion function, for remap normal `f`, `F`, `t` and `T`, so they will work in one line mode. e.g. When use `f<char>` if there is only one `<char>` in the line it's behavior will just like normal `f`, if there are multiple `<char>`s in the single line, it will show prompt for user.
+2. Added inline parameter in easymotion function, for remap normal `f`, `F`, `t` and `T`, so they will work in one line mode. e.g. When use `f<char>` if there is only one `<char>` in the line it's behavior will just like normal `f`, if there are multiple `<char>`s in the single line, it will show prompt for user. This feature is disabled by default, put `let g:EasyMotion_do_normal_motion = 1` to enable it.
 
 # Modifications to Lokaltog's EasyMotion
 1. Use one - two character key jump. Display two keys if one-character key is not enough, so you can see what two keys to type without waiting after pressing the first key.

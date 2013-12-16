@@ -1,5 +1,6 @@
 # Modifications to supasorn's fork
-1. Delete lines (triggered by normal command `dl`) now preserve current position for easier paste.
+1. Delete lines (triggered by normal command `dl`) now preserve current position for easier paste. To use these features, put `let g:EasyMotion_special_select_line = 1` and `let g:EasyMotion_special_select_phrase = 1` in your vimrc
+
 2. Added inline parameter in easymotion function, for remap normal `f`, `F`, `t` and `T`, so they will work in one line mode. e.g. When use `f<char>` if there is only one `<char>` in the line it's behavior will just like normal `f`, if there are multiple `<char>`s in the single line, it will show prompt for user. This feature is disabled by default, put `let g:EasyMotion_do_normal_motion = 1` to enable it.
 
 # Modifications to Lokaltog's EasyMotion

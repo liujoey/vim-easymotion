@@ -73,6 +73,26 @@
 		endif
 	endfunction "}}}
 
+	function! EasyMotion#NormalMotionMappings() "{{{
+		silent exec 'nnoremap <silent> f :call EasyMotion#Finline(0, 0)<CR>'
+		silent exec 'vnoremap <silent> f :<C-U>call EasyMotion#Finline(1, 0)<CR>'
+		silent exec 'nnoremap <silent> F :call EasyMotion#Finline(0, 1)<CR>'
+		silent exec 'vnoremap <silent> F :<C-U>call EasyMotion#Finline(1, 1)<CR>'
+
+		silent exec 'nnoremap <silent> t :call EasyMotion#Tinline(0, 0)<CR>'
+		silent exec 'vnoremap <silent> t :<C-U>call EasyMotion#Tinline(1, 0)<CR>'
+		silent exec 'nnoremap <silent> T :call EasyMotion#Tinline(0, 1)<CR>'
+		silent exec 'vnoremap <silent> T :<C-U>call EasyMotion#Tinline(1, 1)<CR>'
+	endfunction "}}}
+
+
+	function! EasyMotion#SelectPhraseMappings(motion) "{{{
+		if g:EasyMotion_special_select_phrase
+			silent exec 'onoremap <silent> ' . a:motion . ' :call EasyMotion#SelectPhrase()<CR>'
+			silent exec 'nnoremap <silent> v' . a:motion . ' :call EasyMotion#SelectPhrase()<CR>'
+			silent exec 'nnoremap <silent> y' . a:motion . ' :call EasyMotion#SelectPhraseYank()<CR>'
+		endif
+	endfunction "}}}
 " }}}
 " Motion functions {{{
 	function! EasyMotion#F(visualmode, direction) " {{{
@@ -298,6 +318,33 @@
 		endif
 	endfunction "}}}
 
+	function! EasyMotion#Finline(visualmode, direction) " {{{
+		let char = s:GetSearchChar(a:visualmode)
+
+		if empty(char)
+			return
+		endif
+
+		let re = '\C' . escape(char, '.$^~')
+
+		call s:EasyMotion(re, a:direction, a:visualmode ? visualmode() : '', mode(1), 0, 0, 0, 0, 1)
+	endfunction " }}}
+
+	function! EasyMotion#Tinline(visualmode, direction) " {{{
+		let char = s:GetSearchChar(a:visualmode)
+
+		if empty(char)
+			return
+		endif
+
+		if a:direction == 1
+			let re = '\C' . escape(char, '.$^~') . '\zs.'
+		else
+			let re = '\C.' . escape(char, '.$^~')
+		endif
+
+		call s:EasyMotion(re, a:direction, a:visualmode ? visualmode() : '', mode(1), 0, 0, 0, 0, 1)
+	endfunction " }}}
 
 " }}}
 " Helper functions {{{
